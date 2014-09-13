@@ -14,6 +14,11 @@ module Myob
           @model_name.to_s
         end
 
+        def get_from_uri(uri)
+          model_data = parse_response(@client.connection.get(uri, {:headers => @client.headers}))
+          return model_data
+        end
+
         def all(query = nil)
           model_data = parse_response(@client.connection.get(self.url, {:headers => @client.headers}))
           if query
