@@ -23,6 +23,8 @@ module Myob
         model :Invoice
         model :InvoiceItem
 
+        model :OrderItem
+
         model :PayrollCategory
         model :Wage
 
