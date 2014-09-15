@@ -20,7 +20,7 @@ module Myob
         end
 
         def get_using_filter(filter)
-          model_data = parse_response(@client.connection.get(self.url+"/?$filter="+filter, {:headers => @client.headers}))
+          model_data = parse_response(@client.connection.get(self.url, {:params => {:filter => filter}, :headers => @client.headers}))
           return model_data
         end
 
