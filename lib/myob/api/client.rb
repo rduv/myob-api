@@ -6,7 +6,9 @@ module Myob
     class Client
       include Myob::Api::Helpers
 
-      attr_reader :current_company_file, :client
+      attr_reader :current_company_file, :client, :auth_connection
+
+      attr_accessor :refresh_token
 
       def initialize(options)
         model :CompanyFile
