@@ -19,6 +19,11 @@ module Myob
           return model_data
         end
 
+        def get_using_filter(filter)
+          model_data = parse_response(@client.connection.get(self.url+"/?$filter="+filter, {:headers => @client.headers}))
+          return model_data
+        end
+
         def all(query = nil)
           model_data = parse_response(@client.connection.get(self.url, {:headers => @client.headers}))
           if query
